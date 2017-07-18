@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>电影列表</title>
+  </head>
+  <body>
+
+    <table border="1" width="">
+      <tr>
+        <th>影片</th>
+        <th>影片名称</th>
+        <th>导演</th>
+        <th>主演</th>
+        <th>放映信息</th>
+        <th>时长</th>
+        <th>票价</th>
+        <th>操作</th>
+      </tr>
+
+      <?php foreach($movieData as $v):?>
+      <tr>
+        <td><img src="<?php echo $v['picurl'];?>" alt=""></td>
+        <td><?php echo $v['m_name'];?></td>
+        <td><?php echo $v['m_director'];?></td>
+        <td><?php echo $v['actor'];?></td>
+        <td><?php echo mb_substr($v['content'],0,30).'...'; ?></td>
+        <td><?php echo $v['m_time'];?>分钟</td>
+        <td><?php echo $v['m_price'];?></td>
+        <td>
+          <a href="./movieInfo.php?mid=<?php echo $v['m_id'];?>">查看详情</a>
+        </td>
+      </tr>
+      <?php endforeach;?>
+    </table>
+  </body>
+</html>
